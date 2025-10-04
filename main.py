@@ -13,7 +13,7 @@ class MyStyleToolDialog(QtWidgets.QDialog):
 
 		self.mainLayout = QtWidgets.QVBoxLayout()
 		self.setLayout(self.mainLayout)
-		self.setStyleSheet('background-color : #E0D9D9;')
+		self.setStyleSheet('background-color : #F5F5F0;')
 
 		self.imageLabel = QtWidgets.QLabel()
 		self.imagePixmap = QtGui.QPixmap(f"{ROOT_RESOURCE_DIR}/image/background.jpg")
