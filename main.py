@@ -2,6 +2,8 @@ from PySide6 import QtCore, QtGui, QtWidgets
 from shiboken6 import wrapInstance
 import maya.OpenMayaUI as omui
 
+ROOT_RESOURCE_DIR = 'C:/Users/ICT68/Documents/maya/2025/scripts/myStyleTool/resource'
+
 class MyStyleToolDialog(QtWidgets.QDialog):
 	def __init__(self, parent = None):
 		super().__init__(parent)
@@ -12,6 +14,18 @@ class MyStyleToolDialog(QtWidgets.QDialog):
 		self.mainLayout = QtWidgets.QVBoxLayout()
 		self.setLayout(self.mainLayout)
 		self.setStyleSheet('background-color : #E0D9D9;')
+
+		self.imageLabel = QtWidgets.QLabel()
+		self.imagePixmap = QtGui.QPixmap(f"{ROOT_RESOURCE_DIR}/image/background.jpg")
+		scale_pixmap = self.imagePixmap.scaled(
+			QtCore.QSize(256,256),
+			QtCore.Qt.KeepAspectRatio,
+			QtCore.Qt.SmoothTransformation
+		)
+		self.imageLabel.setPixmap(scale_pixmap)
+		self.imageLabel.setAlignment(QtCore.Qt.AlignCenter)
+
+		self.mainLayout.addWidget(self.imageLabel)
 
 		self.nameLayout = QtWidgets.QHBoxLayout()
 		self.mainLayout.addLayout(self.nameLayout)
@@ -31,6 +45,22 @@ class MyStyleToolDialog(QtWidgets.QDialog):
 
 			'''
 		)
+		self.nameLineEdit.setStyleSheet("""
+	            QLineEdit {
+	                background-color: #E0D9D9;
+	                border: 2px solid #2F5755;
+	                border-radius: 5px;
+	                padding: 5px;
+	                color: #432323;
+	                font-size: 14px;
+	            }
+	            QLineEdit:focus {
+	                border: 2px solid #2F5755;
+	            }
+	            QLineEdit:hover {
+	                background-color: #E0D9D9;
+	            }
+        """)
 
 		self.buttonLayout = QtWidgets.QHBoxLayout()
 		self.mainLayout.addLayout(self.buttonLayout)
@@ -63,12 +93,12 @@ class MyStyleToolDialog(QtWidgets.QDialog):
 					color: white;
 					border-radius: 10px;
 					font-size: 16px;
-					padding: 8px;s
+					padding: 8px;
 					font-family: Papirus;
 					font-weight: bold;
 				}
 				QPushButton:pressed {
-					background-color: #E0D9D9;
+					background-color: #432323;
 				}
 			'''
 		)
