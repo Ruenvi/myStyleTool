@@ -11,6 +11,7 @@ class MyStyleToolDialog(QtWidgets.QDialog):
 
 		self.mainLayout = QtWidgets.QVBoxLayout()
 		self.setLayout(self.mainLayout)
+		self.setStyleSheet('background-color : #E0D9D9;')
 
 		self.nameLayout = QtWidgets.QHBoxLayout()
 		self.mainLayout.addLayout(self.nameLayout)
@@ -18,6 +19,18 @@ class MyStyleToolDialog(QtWidgets.QDialog):
 		self.nameLineEdit = QtWidgets.QLineEdit()
 		self.nameLayout.addWidget(self.nameLabel)
 		self.nameLayout.addWidget(self.nameLineEdit)
+		self.nameLabel.setStyleSheet(
+			'''
+				QLabel {
+	                color: #432323;
+	                font-family: Papirus;
+	                font-size: 20px;
+	                font-weight: bold;
+	                padding: 10px;
+				}
+
+			'''
+		)
 
 		self.buttonLayout = QtWidgets.QHBoxLayout()
 		self.mainLayout.addLayout(self.buttonLayout)
@@ -26,6 +39,39 @@ class MyStyleToolDialog(QtWidgets.QDialog):
 		self.cancelButton = QtWidgets.QPushButton('Cancel')
 		self.buttonLayout.addWidget(self.createButton)
 		self.buttonLayout.addWidget(self.cancelButton)
+		self.createButton.setStyleSheet(
+			'''
+				QPushButton {
+					background-color: #432323;
+					color: white;
+					border-radius: 10px;
+					font-size: 16px;
+					padding: 8px;
+					font-family: Papirus;
+					font-weight: bold;
+				}
+				QPushButton:pressed {
+					background-color: #5A9690;
+				}
+			'''
+
+		)
+		self.cancelButton.setStyleSheet(
+			'''
+				QPushButton {
+					background-color: #5A9690;
+					color: white;
+					border-radius: 10px;
+					font-size: 16px;
+					padding: 8px;s
+					font-family: Papirus;
+					font-weight: bold;
+				}
+				QPushButton:pressed {
+					background-color: #E0D9D9;
+				}
+			'''
+		)
 
 		self.mainLayout.addStretch()
 
